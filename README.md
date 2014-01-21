@@ -10,10 +10,32 @@ Set up your model
 
 module.exports = {
 	adapter: ['ircAdapter'],
+//	use 'connections' for v.10 apps instead of 'adapter'
+//	connections: ['ircAdapter'],
 	attributes: {
 
 	}
 };
+```
+
+Add the adapter to your adapters.js file.
+
+```javascript
+
+// myApp/config/adapters.js
+
+module.exports.adapters = {
+
+ 'default': 'disk',
+  disk: {
+    module: 'sails-disk'
+  },
+  ircAdapter:{
+    module: 'sails-irc'
+  }
+};
+
+
 ```
 
 Launch the bot on lift()
