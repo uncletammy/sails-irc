@@ -2,6 +2,21 @@
 
 ### Setup a new Bot
 
+Set up your model
+
+```javascript
+
+// myApp/api/models/My_adapter.js
+
+module.exports = {
+	adapter: ['ircAdapter'],
+	attributes: {
+
+	}
+};
+```
+
+Launch the bot on lift()
 
 ```javascript
 
