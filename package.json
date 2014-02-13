@@ -1,0 +1,39 @@
+{
+  "name": "sails-irc",
+  "version": "0.0.1",
+  "description": "IRC adapter for Sails.js",
+  "main": "lib/adapter.js",
+  "scripts": {
+    "test": "echo \"Adapter should be tested using Sails.js core.\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uncletammy/sails-irc.git"
+  },
+  "keywords": [
+    "irc",
+    "sails",
+    "sailsjs",
+    "sails.js"
+  ],
+  "author": {
+    "name": "Nicholas Crumrine"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "async": "0.1.22",
+    "irc": "~0.3.6"
+  },
+  "readme": "# IRC Adapter for Sails.js Framework\n\n### Setup a new Bot\n\nSet up your model\n\n```javascript\n\n// myApp/api/models/My_adapter.js\n\nmodule.exports = {\n\tadapter: ['ircAdapter'],\n//\tuse 'connections' for v.10 apps instead of 'adapter'\n//\tconnections: ['ircAdapter'],\n\tattributes: {\n\n\t}\n};\n```\n\nAdd the adapter to your adapters.js file.\n\n```javascript\n\n// myApp/config/adapters.js\n\nmodule.exports.adapters = {\n\n 'default': 'disk',\n  disk: {\n    module: 'sails-disk'\n  },\n  ircAdapter:{\n    module: 'sails-irc'\n  }\n};\n\n\n```\n\nLaunch the bot on lift()\n\n```javascript\n\n// myApp/api/services/ServiceAdapters.js\n\nmodule.exports = (function(){\n\n  var botConfig = {\n  \t    botName:'l33tB0t69',\n  \t    botHost:'chat.freenode.net',\n  \t    channels:['#sailsjs'],\n  \t    events:{\n  \t        error:console.log,\n  \t        join:console.log,\n  \t        part:console.log,\n  \t        message:console.log,\n  \t        say:console.log,\n  \t        registered:console.log\n  }\n\n\tMy_adapter.newBot(botConfig,function newBotCB(err,info){\n\t    if (err){\n\t        console.log('Bot Creation Error: '+err);\n\t    } else {\n\t        console.log('Bot Creation info:'+info);   \n\t    }\n\t});\n\n})();\n\n\t\n```\n\nThere are many more events.  I will document all of them when I can.  \n\n\n### TODO\n\n\t- Verify Options object on all methods.\n\t- Allow for saving config sets in config.js (and verication of them in registerCollection)\n\t- Finish writing private event methods\n\t- Do teardown of bots\n\t- Allow for joining/leaving multiple channels.  Detect if array or string is supplied in options.\n\t- Write code to streamAttendance();\n",
+  "bugs": {
+    "url": "https://github.com/uncletammy/sails-irc/issues"
+  },
+  "homepage": "https://github.com/uncletammy/sails-irc",
+  "_id": "sails-irc@0.0.1",
+  "dist": {
+    "shasum": "6c81adf4126456f94738650de2299f20953d3ab4"
+  },
+  "_resolved": "git://github.com/uncletammy/sails-irc.git#72ac0d36b0570f88d19eae4cfa34d50a65017b3b",
+  "_from": "sails-irc@git://github.com/uncletammy/sails-irc.git"
+}
